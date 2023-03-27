@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("auto")
 public class AutoController {
 
-    @Autowired
     private AutoService service;
+
+    public AutoController(AutoService service) {
+        this.service = service;
+    }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)

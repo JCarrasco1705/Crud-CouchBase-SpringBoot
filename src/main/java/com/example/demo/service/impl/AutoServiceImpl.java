@@ -8,8 +8,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AutoServiceImpl implements AutoService {
-    @Autowired
+
     private AutoDao dao;
+
+    public AutoServiceImpl(AutoDao dao) {
+        this.dao = dao;
+    }
 
     public ResponseAutoDto findById(String id){
         return dao.findById(id).orElse(ResponseAutoDto.builder().build());
